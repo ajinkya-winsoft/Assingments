@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<title>Date Directive</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/toast.css">
+ <script src="js/angular.min.js"></script>
+ <script src="js/myScript.js"></script>
+ <script src="js/dateDirective.js"></script>
+ <script src="js/ngMask.min.js"></script>
+
+ <script type="text/javascript">
+    var datefield=document.createElement("input")
+    datefield.setAttribute("type", "date")
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n') 
+    }
+</script>
+ 
+<script>
+if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+    jQuery(function($){ //on document.ready
+        $('#birthday').datepicker();
+    })
+}
+</script>
+<style>
+	.btnn{
+		width : 48px;	
+	}
+	.below {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: right;
+}
+</style>
+<body class="w3-sand"  ng-app="myApp" >
+	
+	<header class="w3-container w3-teal w3-center">
+  			<h1>Custom Date Directive</h1> <br>  Assingment no 2.6 <br> Description
+	</header> 
+			<date-ui maxyear="2020" minyear="1992"></date-ui>
+			
+<footer class="below w3-teal"> Ajinkya Dhote</footer>
+
+</body>
+</html>

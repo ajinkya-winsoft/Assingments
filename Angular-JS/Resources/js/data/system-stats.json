@@ -1,0 +1,18 @@
+{
+  "message": "Data found successfully.",
+  "result": [
+    {
+      "ip": "10.20.9.137",
+      "uptime": 391427,
+      "usedMem": 34,
+      "usedMemVal": 23558012928,
+      "usedSwap": 16,
+      "usedSwapVal": 10247819264,
+      "paging": 0,
+      "cpuUser": 1,
+      "cpuSys": 3,
+      "cpuIdle": 95,
+      "updatedOn": null
+    }
+  ]
+}

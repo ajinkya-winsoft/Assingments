@@ -1,0 +1,23 @@
+  <div edit-form-loaded={{row}} id="id01" class="w3-modal">
+    <div class="w3-modal-content ">
+    <header class="w3-container w3-teal"> 
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
+              <h2>Edit</h2>
+      </header>
+
+      <div ng-repeat="col in cols" class="w3-container">
+      <span ng-if="col.title !== 'Edit'">
+         
+        <label class="w3-label w3-text-teal">
+          {{col.field}}
+        </label>
+        <input class="w3-input w3-border w3-light-grey" type="text" ng-model="row[col.field]"/>
+      </span>
+     
+    </div>
+     <footer class="w3-container w3-teal">
+        <button class="w3-btn w3-teal w3-right" ng-click="cancel()" onclick="document.getElementById('id01').style.display='none'">Cancle</button>
+        <button class="w3-btn w3-teal w3-right" onclick="document.getElementById('id01').style.display='none'">Save</button>
+      </footer>
+    </div>
+  </div>

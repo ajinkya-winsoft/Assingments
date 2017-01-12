@@ -1,0 +1,30 @@
+<div>
+<input clas="w3-input w3-round" style="width:100%" type="text" placeholder="Search table" ng-model="searchText"/>
+<div> 
+    <label> Sort :</label>
+    <select ng-model="orderText" class="w3-select w3-border" name="option">
+        <option value="name" selected>Name</option>
+        <option value="surname">Surnname</option>
+         <option value="fullname">Lastname</option>
+        <option value="email">Email</option>
+    </select>
+</div>
+<div id="popup"></div>
+<table class="w3-table w3-striped w3-bordered w3-centered w3-hoverable w3-table-all">
+  <thead>
+    <tr>
+      <td ng-repeat="col in cols"  ng-click="orderme(col.field)" > {{col.title}}  <span class="glyphicon sort-icon" ng-show="orderText==col.field" ng-class="{'glyphicon glyphicon-triangle-top':reverse,'glyphicon glyphicon-triangle-bottom':!reverse}"></span> </td>
+      <tbody>
+        <tr ng-repeat="row in rows | filter : searchText | orderBy : orderText : reverse">
+          <td ng-repeat="col in cols">
+             <span ng-if="col.title !== 'Edit'">{{row[col.field]}}</span>
+            <span ng-if="col.title == 'Edit'">
+              <editor-initializer></editor-initializer>
+            </span>      
+          </td>
+        </tr>
+      </tbody>
+    </tr>
+  </thead>
+</table>
+</div>

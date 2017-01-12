@@ -1,0 +1,27 @@
+{
+  "message": "Data found successfully.",
+  "result": [
+    {
+      "iMpkts": 38552063,
+      "iPauseFs": 0,
+      "ierrs": 0,
+      "port-speed": 286000,
+      "oMpkts": 153228842,
+      "ibytes": 1828544344941,
+      "iUpkts": 4405707852,
+      "odiscards": 15227679,
+      "counter": 0,
+      "oUpkts": 4606553208,
+      "idiscards": 13604,
+      "oBpkts": 56179613,
+      "mtu-errs": 0,
+      "iBpkts": 5146416,
+      "oPauseFs": 0,
+      "oerrs": 0,
+      "oCongDrops": 466,
+      "iCongDrops": 0,
+      "time": "2016-09-09T02:55:04",
+      "obytes": 1873635897744
+    }
+  ]
+}

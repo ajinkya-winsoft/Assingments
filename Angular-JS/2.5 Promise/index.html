@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<title>Promise in AngularJS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+ <script src="js/angular.min.js"></script>
+ <script src="js/myScript.js"></script>
+<style>
+	.btnn{
+		width : 48px;	
+	}
+	.below {Sucess
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: right;
+}
+</style>
+<body class="w3-sand"  ng-app="myApp"  >
+	
+	 <header class="w3-container w3-teal w3-center">
+  			<h1>Demonstration of Promise</h1> <br>  Assingment no 2.5 <br> Description
+	</header> 
+	<div ng-controller="statusController">
+		<div class="w3-center w3-padding-16 w3-xxlarge">
+			<div class="w3-tag w3-orange ">{{status}}</div> </div>
+	<div >
+		<div class="w3-center w3-padding-4"> 
+		
+		<div class="w3-container w3-padding-64 w3-center" >
+			<div class="w3-row-padding" >
+				 <div class="w3-card w3-quarter" ng-controller="puneCtrl">
+
+					<header class=" w3-blue" > 
+					  <h1> {{pune.city}}</h1>
+					</header>
+
+					<div class="w3-container" >
+					  <p>Max temp : {{pune.maxTemp | number:2}}</p>
+						<p>Min temp : {{pune.minTemp | number:2}}</p>
+					</div>
+
+					<footer class="w3-container w3-blue">
+					 
+					</footer>
+
+				</div>
+				
+				 <div class="w3-card w3-quarter" ng-controller="mumbaiCtrl">
+
+					<header class=" w3-blue" > 
+					  <h1> {{mumbai.city}}</h1>
+					</header>
+
+					<div class="w3-container" >
+					  <p>Max temp : {{mumbai.maxTemp | number:2}}</p>
+						<p>Min temp : {{mumbai.minTemp | number:2}}</p>
+					</div>
+
+					<footer class="w3-container w3-blue">
+					 
+					</footer>
+
+				</div>
+				
+				
+				 <div class="w3-card w3-quarter" ng-controller="delhiCtrl">
+
+					<header class=" w3-blue" > 
+					  <h1> {{delhi.city}}</h1>
+					</header>
+
+					<div class="w3-container" >
+					  <p>Max temp : {{delhi.maxTemp | number:2}}</p>
+						<p>Min temp : {{delhi.minTemp | number:2}}</p>
+					</div>
+
+					<footer class="w3-container w3-blue">
+					  
+					</footer>
+
+				</div>
+				<div class="w3-card w3-quarter" ng-controller="ngpCtrl">
+
+					<header class=" w3-blue" > 
+					  <h1> {{ngp.city}}</h1>
+					</header>
+
+					<div class="w3-container" >
+					  <p>Max temp : {{ngp.maxTemp  |number:2}}</p>
+						<p>Min temp : {{ngp.minTemp|number:2}}</p>
+					</div>
+
+					<footer class="w3-container w3-blue">
+					 
+					</footer>
+
+				</div>
+				
+				 
+		   </div>
+			<div class="w3-row-padding">
+			<div class="w3-card w3-quarter" ng-controller="indiaCtrl">
+
+					<header class=" w3-blue" > 
+					  <h1> {{india.city}}</h1>
+					</header>
+
+					<div class="w3-container" >
+					  <p>Max temp : {{india.maxTemp  |number:2}}</p>
+						<p>Min temp : {{india.minTemp|number:2}}</p>
+					</div>
+
+					<footer class="w3-container w3-blue">
+					 
+					</footer>
+
+				</div>
+			</div>
+			</div>
+		</div>
+
+	</div>
+	<div >
+			<div>{{status}}</div>
+	</div>
+	</div>
+	<footer class=" w3-teal"> Ajinkya Dhote</footer>
+</body>
+</html>
+

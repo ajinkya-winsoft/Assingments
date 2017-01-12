@@ -1,0 +1,26 @@
+{
+  "message": "Data found successfully.",
+  "result": [
+    {
+		"networkCode": 1,
+		"networkNodeCode": 623,
+		"code": 1,
+		"comment": "comment of pn-dev01 comment of pn-dev01 comment of pn-dev01 comment of pn-dev01 comment of pn-dev01 comment of pn-dev01",
+		"dateTime": "2016-10-12T00:00:33"
+    },
+	{
+		"networkCode": 1,
+		"networkNodeCode": 621,
+		"code": 2,
+		"comment": "multiple double line comment of node aquila02",
+		"dateTime": "2016-10-11T00:00:33"
+    },
+	{
+		"networkCode": 1,
+		"networkNodeCode": 621,
+		"code": 3,
+		"comment": "comment 2 of aquila02",
+		"dateTime": "2016-10-12T00:00:33"
+    }
+  ]
+}

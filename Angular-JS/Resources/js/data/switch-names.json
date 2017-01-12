@@ -1,0 +1,61 @@
+{
+  "message": "Data found successfully.",
+  "result": [
+    {
+      "id": "184549409",
+      "name": "aquila02"
+    },
+    {
+      "id": "184549541",
+      "name": "cruxb1"
+    },
+    {
+      "id": "201326772",
+      "name": "cruxb2"
+    },
+    {
+      "id": "201326799",
+      "name": "cruxa2"
+    },
+    {
+      "id": "184549544",
+      "name": "pn-lab01"
+    },
+    {
+      "id": "184549528",
+      "name": "pn-dev02"
+    },
+    {
+      "id": "184549538",
+      "name": "spine01"
+    },
+    {
+      "id": "184549542",
+      "name": "cruxb3"
+    },
+    {
+      "id": "184549539",
+      "name": "spine02"
+    },
+    {
+      "id": "201326777",
+      "name": "cruxb0"
+    },
+    {
+      "id": "167772236",
+      "name": "pn-dev01"
+    },
+    {
+      "id": "184549540",
+      "name": "cruxa3"
+    },
+    {
+      "id": "167772422",
+      "name": "pn-dev03"
+    },
+    {
+      "id": "201326761",
+      "name": "cruxa0"
+    }
+  ]
+}

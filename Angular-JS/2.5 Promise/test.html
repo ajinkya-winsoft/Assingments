@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<script src="js/angular.min.js"></script>
+  <title>Angular JS</title>
+</head>
+<body ng-app="jsbin">
+  <div ng-controller="DemoCtrl as vm">
+   
+    City : {{ vm.data.city.name }}
+    Max : {{((vm.data.list[0].temp.max)-32)*(5/9) | number:2}}
+   
+     Min : {{((vm.data.list[0].temp.min)-32)*(5/9) | number:2}}
+   
+    <br><br>
+     City : {{ vm.data | json}}
+  </div>
+  
+</body>
+	<script>
+
+	var app = angular.module('jsbin', []);
+
+app.controller('DemoCtrl', function($http) {
+  
+  var vm = this;
+  
+  var URL = 'http://api.openweathermap.org/data/2.5/forecast/daily';
+  
+  var request = {
+    method: 'GET',
+    url: URL,
+    params: {
+       q: 'pune',
+      mode: 'json',
+      units: 'imperial',
+      cnt: '7',
+      appid: 'e5471cc3f2f4dd55c3dccf8531037468'
+    }
+  };
+  
+  $http(request)
+    .then(function(response) {
+      vm.data = response.data;
+     console.log(vm.data.list[0].temp.day);
+    }).
+    catch(function(response) {
+      vm.data = response.data;
+    });
+});
+</script>
+</html>

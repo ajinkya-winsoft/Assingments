@@ -1,0 +1,35 @@
+[
+  {
+    "builder": "vcf",
+    "app": "vcf-center",
+    "build-number": "739",
+    "version": "2.1.0-SNAPSHOT",
+    "revision": "825989d662cd7999ba431408342ef54b95369c04",
+    "timestamp": "Thu Nov 03 22:41:03 PDT 2016"
+  },
+  {
+    "builder": "vcf",
+    "app": "vcf-ia",
+    "build-number": "739",
+    "version": "2.1.0-SNAPSHOT",
+    "revision": "825989d662cd7999ba431408342ef54b95369c04",
+    "timestamp": "Thu Nov 03 22:40:10 PDT 2016"
+  },
+  {
+    "builder": "vcf",
+    "app": "vcf-pa",
+    "build-number": "739",
+    "version": "2.1.0-SNAPSHOT",
+    "revision": "825989d662cd7999ba431408342ef54b95369c04",
+    "timestamp": "Thu Nov 03 22:39:54 PDT 2016"
+  },
+  {
+    "app": "vcf-mgr",
+    "build-number": "1624",
+    "name": "VCF Application Server",
+    "builder": "vcf",
+    "version": "2.1.0-SNAPSHOT",
+    "revision": "f3d5d62d1a886e92b63d2112f014b6cce38eb5ff",
+    "timestamp": "Thu Nov 03 20:10:41 PDT 2016"
+  }
+]
