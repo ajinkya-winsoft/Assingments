@@ -41,8 +41,8 @@ public class Calculator {
 	
 	}
 	
-	public static double evaluate(final String str) {
-	    return new Object() {
+	public static int evaluate(final String str) {
+	    return (int) new Object() {
 	        int pos = -1, ch;
 
 	        void nextChar() {
