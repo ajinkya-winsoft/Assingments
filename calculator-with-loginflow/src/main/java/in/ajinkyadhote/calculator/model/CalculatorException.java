@@ -1,4 +1,4 @@
-package in.ajinkyadhote.login.model;
+package in.ajinkyadhote.calculator.model;
 
 public class CalculatorException extends Exception{
 	/**

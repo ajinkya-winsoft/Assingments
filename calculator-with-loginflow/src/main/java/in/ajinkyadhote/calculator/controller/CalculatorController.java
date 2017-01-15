@@ -1,4 +1,4 @@
-package in.ajinkyadhote.login.controller;
+package in.ajinkyadhote.calculator.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,16 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.ajinkyadhote.login.model.Calculator;
-import in.ajinkyadhote.login.model.CalculatorException;
+import in.ajinkyadhote.calculator.model.Calculator;
+import in.ajinkyadhote.calculator.model.CalculatorException;
 
 @RestController
+@RequestMapping("/calculator")
 public class CalculatorController  {
 	
 	@Autowired
 	private Calculator calculator;
 	private static final Logger logger = LoggerFactory.getLogger(Calculator.class);
-	@RequestMapping("/calculator")
+	
+	public CalculatorController() {
+		
+	}
+	
+	@RequestMapping("/")
+	public String a() {
+		return "in Calculator";
+	}
+	@RequestMapping("/divide")
 	public String calculator() {
 		logger.debug("In Calculator");
 		String result;
