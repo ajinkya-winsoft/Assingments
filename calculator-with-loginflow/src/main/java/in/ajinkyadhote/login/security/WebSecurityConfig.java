@@ -8,19 +8,33 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	
+   @Autowired
+    private AuthFailure authFailure;
+
+    @Autowired
+    private AuthSuccess authSuccess;
+
+    @Autowired
+    private EntryPointUnauthorizedHandler unauthorizedHandler;
+
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
 		 http
-	     .authorizeRequests()
-	         .antMatchers("/", "/index").permitAll()
-	         .anyRequest().authenticated()
+		 .csrf().disable()
+		 .exceptionHandling()
+	         .authenticationEntryPoint(unauthorizedHandler)
 	         .and()
-	     .formLogin();
-//	         .loginPage("/login")
-//	         .permitAll()
-//	         .and()
-//	     .logout()
-//	         .permitAll();
+	     .formLogin()
+	         .successHandler(authSuccess)
+	         .failureHandler(authFailure)
+	     .and()
+         .authorizeRequests()
+             .antMatchers("/login","/")
+                 .permitAll()
+             .antMatchers("/calculator")
+             	.authenticated();
+             
 	}
 	@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
