@@ -1,5 +1,8 @@
 package in.ajinkyadhote.calculator.controller;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import javax.script.ScriptException;
 
 import org.slf4j.Logger;
@@ -25,14 +28,19 @@ public class CalculatorController  {
 	}
 	
 	@RequestMapping("/eval/{expression}")
-	public String eval(@PathVariable String expression) {
-		String result = null;
+	public Map<String, Object> eval(@PathVariable String expression) {
+		String ans = null;
+		Map<String, Object> result = new LinkedHashMap<String, Object>();
 		try {
-			result = calculator.eval(expression);
-		} catch (ScriptException e) {
+			ans = calculator.eval(expression);
+			result.put("status", "success");
+			result.put("result", ans);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			result = e.getMessage();		}
+			//e.printStackTrace();
+			result.put("status", "fail");
+			result.put("result", "Malformed Expression");	
+		}
 		return result;
 	}
 	@RequestMapping("/divide")

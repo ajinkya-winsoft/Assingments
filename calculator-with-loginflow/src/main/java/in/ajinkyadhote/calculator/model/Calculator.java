@@ -31,11 +31,12 @@ public class Calculator {
 		return result;
 	}
 
-	public String eval(String expression) throws ScriptException  {
-//		ScriptEngineManager mgr = new ScriptEngineManager();
-//	    ScriptEngine engine = mgr.getEngineByName("JavaScript");
-	    String result = "" + evaluate(expression);
-	    System.out.println(result);
+	public String eval(String expression) throws Exception  {
+		String result = "";
+		
+			result = "" + evaluate(expression);
+		    System.out.println(result);
+	    
 	    return result;
 	
 	}
