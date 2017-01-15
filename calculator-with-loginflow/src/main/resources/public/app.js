@@ -84,8 +84,8 @@ myApp.controller("myAppController", function($scope, $http, $state, toaster) {
 				break;
 				
 		    case "delete" :
-				var text = displayField.value;
-				displayField.value = text.substring(0,(text.length)-1);
+				var text = $scope.value;
+				$scope.value = text.substring(0,(text.length)-1);
 				break;
 				
 			 case "modulo" :
@@ -93,11 +93,6 @@ myApp.controller("myAppController", function($scope, $http, $state, toaster) {
 				break;
 			 
 			case "enter" :
-//				store_last_function();
-//			if(isOperatorPresent())
-//				process();
-//			else
-//				perform_last_operation();
 				$scope.process();
 		
 				break;
@@ -109,13 +104,24 @@ myApp.controller("myAppController", function($scope, $http, $state, toaster) {
 	}
 	
 	$scope.process = function(){
-		$http.get("/calculator/eval/"+$scope.value)
+		if($scope.value || ''){
+			$http.get("/calculator/eval/"+$scope.value)
 			.then(function(response) {
+				console.log(response)
+				if(response.data.status=='success'){
 		            $scope.value = response.data.result;
-		        }, function(data) {
-		          console.log("error");
-		          console.log(data)
-		        });
+				}
+				if(response.data.status=='fail'){
+					$scope.pop("error","Error",response.data.result);
+				}
+		     }, function(err) {
+		          $scope.pop("error","Error",err.data.result);
+		     });
+			
+		}else{
+			$scope.pop("error","Error","Text Field Cannot be Blank");
+		}
+		
 
 	}
 });
