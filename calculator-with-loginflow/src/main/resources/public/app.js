@@ -25,18 +25,20 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 myApp.controller("myAppController", function($scope, $http, $state, toaster) {
+	$scope.isLogin = false;
+	$scope.user={};
 	
 	 $scope.pop = function(type, title, message){
          toaster.pop(type, title, message);
      };
      
     
-	$scope.login = function() {
-		$http.post("/login", "username=" + "user" +
-		        "&password=" + "password", {
+	$scope.login = function(data) {
+		$http.post("/login", "username=" + $scope.user.name +
+		        "&password=" + $scope.user.password, {
 		            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		        } ).then(function(data) {
-		        	 $scope.pop("info","Welcome","Login Successful");
+		        	 $scope.pop("info","Welcome "+$scope.user.name,"Login Successful");
 		            localStorage.setItem("session", {});
 		            $scope.isLogin = true;
 		            $state.go("home");
@@ -47,6 +49,11 @@ myApp.controller("myAppController", function($scope, $http, $state, toaster) {
 
 	}
 	
+	$scope.logout = function() {
+		$scope.isLogin = false;
+		$state.go("home");
+	}
+	
 	$scope.displayNo = function (id){
 		console.log(id)
 		var old_value = $scope.value;
@@ -55,7 +62,6 @@ myApp.controller("myAppController", function($scope, $http, $state, toaster) {
 		switch(id){
 			
 			case "clear" :
-				console.log($scope.value);
 				$scope.value = "";
 				break;
 			
