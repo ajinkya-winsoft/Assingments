@@ -1,4 +1,4 @@
-package in.ajinkyadhote.login.security;
+package in.ajinkyadhote.calculator.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          .authorizeRequests()
              .antMatchers("/login","/")
                  .permitAll()
-             .antMatchers("/calculator")
+             .antMatchers("/calculator/**")
              	.authenticated();
              
 	}

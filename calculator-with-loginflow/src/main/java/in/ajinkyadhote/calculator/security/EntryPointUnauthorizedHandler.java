@@ -1,4 +1,4 @@
-package in.ajinkyadhote.login.security;
+package in.ajinkyadhote.calculator.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
