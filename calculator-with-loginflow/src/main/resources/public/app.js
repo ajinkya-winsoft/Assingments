@@ -27,7 +27,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 myApp.controller("myAppController", function($scope, $http, $state, toaster) {
 	$scope.isLogin = false;
 	$scope.user={};
-	
+	$scope.calc={};
 	 $scope.pop = function(type, title, message){
          toaster.pop(type, title, message);
      };
@@ -55,67 +55,33 @@ myApp.controller("myAppController", function($scope, $http, $state, toaster) {
 	}
 	
 	$scope.displayNo = function (id){
-		console.log(id)
-		var old_value = $scope.value;
-		//var displayField = document.getElementById("textfield");
-		
+		var old_value = $scope.calc.value;
+
 		switch(id){
 			
 			case "clear" :
-				$scope.value = "";
+				$scope.calc.value = "";
 				break;
-			
-			case "divide" :
-				divideNumber(true);
-				break;
-				
-			case "plus" :
-				addNumber(true);
-				break;
-				
-			case "minus" :
-				subNumber(true);
-				break;
-				
-			case "multiply" :
-				multiplyNumber(true);
-				break;
-			
-			case "half" :
-				displayField.value = Number(old_value/2);
-				break;
-				
-			case "square" :
-				displayField.value = Number(old_value*old_value);
-				break;
-				
 		    case "delete" :
-				var text = $scope.value;
-				$scope.value = text.substring(0,(text.length)-1);
-				break;
-				
-			 case "modulo" :
-				modNumber(true);
-				break;
-			 
+				var text = $scope.calc.value;
+				$scope.calc.value = text.substring(0,(text.length)-1);
+				break;			 
 			case "enter" :
 				$scope.process();
-		
-				break;
-				
+				break;		
 			default :
-				
-				$scope.value = $scope.value == undefined ? ""+id : $scope.value+""+id;
+				$scope.calc.value = $scope.calc.value == undefined ? ""+id : $scope.calc.value+""+id;
 		}
 	}
 	
-	$scope.process = function(){
-		if($scope.value || ''){
-			$http.get("/calculator/eval/"+$scope.value)
+	$scope.process = function() {
+		if($scope.calc.value || ''){
+			$http.get("calculator/eval",{
+				params: {expression:$scope.calc.value}
+			})
 			.then(function(response) {
-				console.log(response)
 				if(response.data.status=='success'){
-		            $scope.value = response.data.result;
+		            $scope.calc.value = response.data.result;
 				}
 				if(response.data.status=='fail'){
 					$scope.pop("error","Error",response.data.result);
@@ -129,5 +95,33 @@ myApp.controller("myAppController", function($scope, $http, $state, toaster) {
 		}
 		
 
+	}
+	
+	$scope.square = function() {
+		$http.get("/calculator/square/"+$scope.calc.value+"/")
+		.then(function(response) {
+			if(response.data.status=='success'){
+	            $scope.calc.value = response.data.result;
+			}
+			if(response.data.status=='fail'){
+				$scope.pop("error","Error",response.data.result);
+			}
+	     }, function(err) {
+	          $scope.pop("error","Error",err.data.result);
+	     });
+	}
+	
+	$scope.half = function() {
+		$http.get("/calculator/half/"+$scope.calc.value+"/")
+		.then(function(response) {
+			if(response.data.status=='success'){
+	            $scope.calc.value = response.data.result;
+			}
+			if(response.data.status=='fail'){
+				$scope.pop("error","Error",response.data.result);
+			}
+	     }, function(err) {
+	          $scope.pop("error","Error",err.data.result);
+	     });
 	}
 });
