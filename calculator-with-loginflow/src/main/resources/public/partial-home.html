@@ -1,13 +1,13 @@
 
     <div class="w3-container w3-display-middle" id="calculator" ng-if="isLogin">
-		<input class="w3-input w3-border"  selected ng-model="value"/>
+		<input class="w3-input w3-border"  selected ng-model="calc.value"/>
 		<div class="w3-row">
 			<div>
 				<div class="w3-row-padding w3-padding-4">
 					<button class="w3-btn w3-round btnn w3-hover-white"  id="clear" ng-click="displayNo('clear')">C</button>
-					<button class="w3-btn w3-round btnn w3-hover-white"  id="divide" ng-click="displayNo('divide')">&divide;</button>
-					<button class="w3-btn w3-round btnn w3-hover-white"  id="multiply" ng-click="displayNo('multiply')" >*</button>
-					<button class="w3-btn w3-round btnn w3-hover-white"  id="minus" ng-click="displayNo('minus')" >-</button>
+					<button class="w3-btn w3-round btnn w3-hover-white"  id="divide" ng-click="displayNo('/')">&divide;</button>
+					<button class="w3-btn w3-round btnn w3-hover-white"  id="multiply" ng-click="displayNo('*')" >*</button>
+					<button class="w3-btn w3-round btnn w3-hover-white"  id="minus" ng-click="displayNo('-')" >-</button>
 				</div>
 				<div class="w3-row-padding w3-padding-4">
 					<button class="w3-btn w3-round btnn w3-hover-white"  id="no7" ng-click="displayNo('7')" >7</button>
@@ -29,9 +29,9 @@
 					<button class="w3-btn w3-round btnn w3-hover-white"  id="dot" ng-click="displayNo('.')" >.</button>
 				</div>
 				<div class="w3-row-padding w3-padding-4">
-					<button class="w3-btn w3-round btnn w3-hover-white"  id="square" ng-click="displayNo('square')" >x&sup2;</button>
-					<button class="w3-btn w3-round btnn w3-hover-white"  id="no0" ng-click="displayNo('no0')" >0</button>
-					<button class="w3-btn w3-round btnn w3-hover-white"  id="half" ng-click="displayNo('half')" >&frac12;</button>
+					<button class="w3-btn w3-round btnn w3-hover-white"  id="square" ng-click="square()" >x&sup2;</button>
+					<button class="w3-btn w3-round btnn w3-hover-white"  id="no0" ng-click="displayNo('0')" >0</button>
+					<button class="w3-btn w3-round btnn w3-hover-white"  id="half" ng-click="half()" >&frac12;</button>
 					<button class="w3-btn w3-round btnn w3-hover-white"  id="delete" ng-click="displayNo('delete')" >del</button>
 				</div>
 				
