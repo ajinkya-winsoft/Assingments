@@ -1,0 +1,4 @@
+CREATE TABLE `library`.`person` ( `id` INT NOT NULL , `firstName` VARCHAR(20) NOT NULL , `LastName` VARCHAR(20) NOT NULL , `address` VARCHAR(20) NOT NULL , `phoneNo` VARCHAR(20) NOT NULL , `age` INT NOT NULL , `personId` VARCHAR(20) NOT NULL , `type` VARCHAR(20) NOT NULL ) ENGINE = InnoDB;
+
+
+INSERT INTO `person` (`id`, `firstName`, `LastName`, `address`, `phoneNo`, `age`, `personId`, `type`) VALUES ('1', 'Ajinkya', 'Dhote', 'Nagpur', '8800741607', '24', '14mcei01', 'student');

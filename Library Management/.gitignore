@@ -1,2 +1,2 @@
-node-modules/
-.eslintrc.js
+LibraryManagementSystem/src/main/resources/public/node_modules
+LibraryManagementSystem/target/classes/public/node_modules
