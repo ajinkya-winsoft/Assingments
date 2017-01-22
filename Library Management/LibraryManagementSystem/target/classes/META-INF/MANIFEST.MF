@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: LibraryManagementSystem
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Ajinkya
+Implementation-Vendor-Id: in.ajinkyadhote
+Build-Jdk: 1.8.0_101
+Implementation-URL: http://projects.spring.io/spring-boot/LMS/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
