@@ -1,0 +1,25 @@
+<div class="w3-main" style="margin-left:300px;margin-top:43px;"  ng-controller="BookController">
+  <h1> Books </h1>
+
+  <table class="w3-table-all">
+      <thead>
+        <tr class="w3-light-grey w3-hover-red">
+          <th>Book Name</th>
+          <th>Author</th>
+          <th>Publisher</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="book in books" class="w3-hover-green">
+        <td>{{book.bookname}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.publisher}}</td>
+        <td>{{book.type}}</td>
+      </tr>
+  <table>
+<!-- <ul>
+  <li ng-repeat="book in books">
+    {{ book.bookname }} {{book}}
+  </li>
+</ul> -->
+</div>
