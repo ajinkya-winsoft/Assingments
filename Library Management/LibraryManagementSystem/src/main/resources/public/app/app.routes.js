@@ -12,5 +12,9 @@ LMS.config( function($stateProvider, $urlRouterProvider) {
 		.state('admnin', {
 			url: '/admin',
 			templateUrl: './app/component/admin/admin.html'
+		})
+		.state('books', {
+			url: '/books',
+			templateUrl: './app/component/books/book.html'
 		});
 });
