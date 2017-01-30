@@ -1,5 +1,5 @@
 <!-- Sidenav/menu -->
-<div>
+<div ng-controller="SideNavController">
 <nav class="w3-sidenav w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidenav"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
@@ -18,10 +18,10 @@
   </div>
   <a href="/student" class="w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
   <a href="/admin" class="w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-  <a href="#" class="w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
+  <a href="#" class="w3-padding" ng-click="changeState()"><i class="fa fa-eye fa-fw"></i>  Books</a>
   <a href="#" class="w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
   <a href="#" class="w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
-  <a href="#" class="w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
+  <a href="#" class="w3-padding" ng-click="requestbooks()"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
   <a href="#" class="w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
   <a href="#" class="w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
   <a href="#" class="w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>

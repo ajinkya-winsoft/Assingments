@@ -1,4 +1,4 @@
-<div class="w3-main" style="margin-left:300px;margin-top:43px;"  ng-controller="BookController">
+<div class="w3-main" style="margin-left:300px;margin-top:43px;"  ng-controller="RequestBookController">
   <h1> Books </h1>
   <p> Search Book : <input class="w3-input" type="text" ng-model="bookSearchFiletr"> </p>
   <table class="w3-table-all">
@@ -9,6 +9,7 @@
           <th>Publisher</th>
           <th>Type</th>
           <th>Availability </th>
+          <th>Action</th>
         </tr>
       </thead>
       <tr ng-repeat="book in books | filter: bookSearchFiletr" class="w3-hover-green">
@@ -17,6 +18,7 @@
         <td>{{book.publisher}}</td>
         <td>{{book.type}}</td>
         <td>{{book.available}}</td>
+        <td><button class="w3-btn w3-hover-purple" ng-click="requestforBook(book.id)"> Request</button></td>
       </tr>
   <table>
 <!-- <ul>

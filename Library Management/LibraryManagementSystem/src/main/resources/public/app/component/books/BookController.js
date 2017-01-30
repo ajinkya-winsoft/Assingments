@@ -3,7 +3,5 @@ LMS.controller( 'BookController', function($scope, $http, $log) {
   $http.get("http://localhost:8080/books/all")
     .then(function(response) {
         $scope.books = response.data;
-        $log.log(response);
-        $log.debug($scope.books);
     });
 })

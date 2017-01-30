@@ -1,5 +1,5 @@
 LMS.config( function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/home');
+	$urlRouterProvider.otherwise('/error');
 	$stateProvider
 		.state('home', {
 			url: '/home',
@@ -12,5 +12,13 @@ LMS.config( function($stateProvider, $urlRouterProvider) {
 		.state('admnin', {
 			url: '/admin',
 			templateUrl: './app/component/admin/admin.html'
+		})
+		.state('books', {
+			url: '/books',
+			templateUrl: './app/component/books/book.html'
+		})
+		.state('requestbooks', {
+			url: '/requestbooks',
+			templateUrl: './app/component/books/requestBook.html'
 		});
 });

@@ -2,6 +2,7 @@ package in.ajinkyadhote.lms.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,46 +14,46 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.ajinkyadhote.lms.model.Book;
+
 import in.ajinkyadhote.lms.model.Issuedbook;
-import in.ajinkyadhote.lms.service.BookService;
 import in.ajinkyadhote.lms.service.IssuedbookService;
 
 @RestController
-@RequestMapping("/books")
-public class BookController {
-	
-	@Autowired
-	BookService bookService;
+@RequestMapping("/issuedbooks")
+public class IssuedbookController {
 	
 	@Autowired
 	IssuedbookService  issuedbookService;
 
 	@RequestMapping("/all")
 	public Object getAllStudents(){
-		return bookService.findAll();
+		return issuedbookService.findAll();
 	}
 	
 	@RequestMapping("{id}")
-	public Book getStudent(@PathVariable("id") Long id) {
-		return bookService.findById(id);
+	public Issuedbook getIssudedBookByID(@PathVariable("id") Long id) {
+		return issuedbookService.findById(id);
+	}
+	@RequestMapping("/student/{id}")
+	public List<Issuedbook> getIssudedBookByStident(@PathVariable("id") Long id) {
+		return issuedbookService.findByStudentID(id);
 	}
 	
 	 @RequestMapping(value = "/create", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)	  
 	  @ResponseBody
 	  //public String create(@RequestParam(value = "id", required = true) Long id, @RequestParam("name")String name,@RequestParam("email") String email,@RequestParam("password") String password,@RequestParam("PhoneNo") String PhoneNo) {
-	  public String create(@RequestBody Book Book) {
+	  public String create(@RequestBody Issuedbook issuedbook) {
 		  String userId = "";
 	    try {	    
 	      //Book user = new Book();
-	    	bookService.save(Book);
+	    	issuedbookService.save(issuedbook);
 	     // userId = String.valueOf(user.getId());
-	      userId = String.valueOf(Book.getId());
+	      userId = String.valueOf(issuedbook.getId());
 	    }
 	    catch (Exception ex) {
-	      return "Error creating the user: " + ex.toString();
+	      return "Error creating the request: " + ex.toString();
 	    }
-	    return "User succesfully created with id = " + userId;
+	    return "Request succesfully created with id = " + userId;
 	  }
 	 
 	 @RequestMapping("/update/{id}")
@@ -62,21 +63,8 @@ public class BookController {
 		 Map<String, Object> result = new HashMap<String, Object>();
 		 try {
 	    	//Person user = personService.findById(id);
-			Book book = bookService.findById(id);
-			//book.setId(id);
-			book.setAvailable(book.getAvailable()+1);
-	    	bookService.save(book);
-	    	
-	    	Date startDate = new Date();
-	    	Date endDate = new Date(startDate.getTime() + (1000*60*12*7));
-	    	Issuedbook  issuedbook = new Issuedbook();
-	    	issuedbook.setBookid(book.getId());
-	    	issuedbook.setStartdate(startDate);
-	    	issuedbook.setEnddate(endDate);
-	    	issuedbook.setStudent((long) 1);
-	    	
-	    	issuedbookService.save(issuedbook);
-	    	
+			Issuedbook issuedbook = issuedbookService.findById(id);
+			issuedbookService.save(issuedbook);
 	    }
 	    catch (Exception ex) {
 	    	System.out.println(ex);
@@ -87,4 +75,5 @@ public class BookController {
 	   result.put("result","Book succesfully requested!");
 	   return result;
 	  }
+
 }
