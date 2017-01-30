@@ -15,11 +15,16 @@ public class Book {
 	String publisher;
 	String author;
 	String type;
+	int available;
 	
 	public Long getId() {
 		return id;
 	}
 	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getbookname() {
 		return bookname;
 	}
@@ -28,6 +33,14 @@ public class Book {
 		this.bookname = bookname;
 	}
 	
+	public int getAvailable() {
+		return available;
+	}
+
+	public void setAvailable(int available) {
+		this.available = available;
+	}
+
 	public String getPublisher() {
 		return publisher;
 	}
